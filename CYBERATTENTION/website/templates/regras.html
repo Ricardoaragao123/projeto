@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regras</title>
+    <style>
+        body {
+            background-color: rgba(13, 35, 58);
+            color: white; 
+            padding: 20px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            height: 100vh; 
+            margin: 0; 
+        }
+
+        h1 {
+            text-align: center; 
+            margin-bottom: 20px; 
+            font-size: 50px;
+            font-family: 'Arial', sans-serif; 
+        }
+
+        ul {
+            padding-left: 20px; 
+            font-size: 20px; 
+            font-family: 'Arial', sans-serif; 
+        }
+
+        li {
+            margin-bottom: 10px; 
+        }
+
+        .imagem-jogo {
+            width: 200px; 
+            height: auto; 
+            margin-top: 20px; 
+            margin-left: 1050px
+        }
+
+        .aviso {
+            width: 100px; 
+            height: auto; 
+            margin-top: 20px; 
+            margin-right: 20px; 
+            float: left; 
+        }
+        .lampada {
+            width: 150px; 
+            height: auto; 
+            margin-top: -200px; 
+            margin-left: -1050px
+        }
+        .link-images {
+            position: absolute;
+            top: 20px;
+        }
+
+        .link-jogos {
+            right: 150px;
+        }
+
+        .link-regras {
+            right: 50px;
+        }
+
+        .link-logotipo {
+            left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- logotipo para voltar ao a pagina main -->
+    <div class="link-images link-logotipo">
+        <a href="/">
+          <img src="{{ url_for('static', filename='logotipo.png') }}" alt="Descrição da imagem" style="width: 200px; height: auto;">
+        </a>
+    </div>
+    <div class="link-images link-jogos">
+        <a href="jogos.html">
+          <img src="{{ url_for('static', filename='jogos.png') }}" alt="Descrição da imagem" style="width: 80px; height: auto;">
+        </a>
+    </div>
+    
+
+    <h1>Regras: </h1>
+    <img src="{{ url_for('static', filename='aviso.png') }}" alt="Aviso" class="aviso">
+    <p style="font-size: 28px;">Aqui estão algumas regras básicas para o jogo:</p>
+    <ul>
+        <li><strong>Respeito às Regras do Jogo:</strong> Os jogadores devem concordar em seguir todas as regras estabelecidas pelo jogo, 
+            incluindo aquelas relacionadas ao uso adequado das ferramentas de cibersegurança disponíveis..</li>
+
+        <li><strong>Compartilhamento Responsável de Conhecimento:</strong> Os jogadores devem promover um ambiente de aprendizagem colaborativo,
+            compartilhando conhecimentos e técnicas de cibersegurança de forma responsável e ética.</li>
+
+        <li><strong>Proteção de Dados Pessoais:</strong> Os jogadores devem concordar em não compartilhar
+             informações pessoais.</li>
+
+        <li><strong>Feedback Construtivo:</strong> Os jogadores são encorajados a fornecer feedback construtivo sobre o jogo e suas regras, 
+            ajudando na melhoria contínua da experiência do usuário e na eficácia do ensino de cibersegurança.</li>
+
+        <li><strong>Proteção de Senhas e Credenciais:</strong> Os jogadores devem concordar em proteger suas próprias senhas e credenciais de acesso, 
+            não compartilhando-as com outros jogadores e mantendo-as em segurança contra possíveis ataques cibernéticos.</li>
+    </ul>
+    
+    <img src="{{ url_for('static', filename='imagemjogo.png') }}" alt="Imagem do Jogo" class="imagem-jogo">
+    <img src="{{ url_for('static', filename='lampadamexer.gif') }}" alt="Imagem do Jogo" class="lampada">
+</body>
+
+</html>

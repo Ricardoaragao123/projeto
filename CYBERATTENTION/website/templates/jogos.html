@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogos</title>
+    <style>
+        body {
+            background-color: rgba(13, 35, 58);
+            color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0; /* Remova as margens para garantir que o iframe seja exibido corretamente */
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 50px;
+            position: relative; /* Define a posição como relativa para poder ajustar o z-index */
+            z-index: 2; /* Garante que o texto fique em cima das imagens */
+            margin-top: -200px; /* Ajusta a posição do texto para ficar acima das imagens */
+            margin-bottom: 50px; /* Adiciona espaço abaixo do texto */
+        }
+
+        .logotipo-container {
+            display: flex;
+            justify-content: space-between;
+            width: 80%; /* Adicionando uma largura para limitar a largura das imagens */
+            margin-bottom: 20px; /* Adicionando margem inferior para separar das outras partes da página */
+        }
+
+        .logotipo {
+            width: 100px; /* Definindo uma largura fixa para as imagens */
+            height: auto; /* Mantendo a proporção original */
+            position: relative; /* Define a posição como relativa para permitir o ajuste do z-index */
+            z-index: 1; /* Garante que as imagens fiquem atrás do texto */
+        }
+
+        /* Adicionando efeito de elevação ao passar o mouse sobre as imagens */
+        .logotipo:hover {
+            transform: translateY(-10px); /* Move a imagem para cima */
+            transition: transform 0.3s ease; /* Adiciona uma transição suave */
+        }
+
+        /* Estilizando o texto abaixo das imagens */
+        .texto-imagem {
+            text-align: center;
+            font-size: 18px;
+            margin-top: 10px; /* Adicionando espaço entre a imagem e o texto */
+        }
+
+        /* Estilos para o GIF */
+        #fire1 {
+            width: 100%; /* Define a largura para preencher a largura da tela */
+            max-width: 200px; /* Define uma largura máxima */
+            height: auto; /* Mantém a proporção original */
+            margin-top: 20px; /* Adiciona espaço acima do GIF */
+            margin-left: 1050px; /* Define a margem à esquerda como automática para posicionar à direita */
+        }
+
+        #fire2 {
+            width: 100%; /* Define a largura para preencher a largura da tela */
+            max-width: 150px; /* Define uma largura máxima */
+            height: auto; /* Mantém a proporção original */
+            margin-top: -160px; /* Adiciona espaço acima do GIF */
+            margin-left: 0px; /* Define a margem à esquerda como automática para posicionar à direita */
+        }
+        #fire3 {
+            width: 100%; /* Define a largura para preencher a largura da tela */
+            max-width: 50px; /* Define uma largura máxima */
+            height: auto; /* Mantém a proporção original */
+            margin-top: -90px; /* Adiciona espaço acima do GIF */
+            margin-left: -1050px; /* Define a margem à esquerda como automática para posicionar à direita */
+        }
+        .link-images {
+            position: absolute;
+            top: 20px;
+        }
+
+        .link-jogos {
+            right: 150px;
+        }
+
+        .link-regras {
+            right: 50px;
+        }
+
+        .link-logotipo {
+            left: 20px;
+        }
+
+       
+        .link-regras {
+            right: 50px;
+        }
+
+        .link-logotipo {
+            left: 20px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="link-images link-logotipo">
+        <a href="/">
+            <img src="{{ url_for('static', filename='logotipo.png') }}" alt="Descrição da imagem" style="width: 200px; height: auto;">
+        </a>
+    </div>
+    
+    <div class="link-images link-regras">
+        <a href="regras.html" target="_blank">
+            <img src="{{ url_for('static', filename='regras.png') }}" alt="Descrição da imagem" style="width: 80px; height: auto;">
+        </a>
+    </div>
+    <h1>Jogos:</h1>
+    <div class="logotipo-container">
+        <div>
+            <a href="facil.html"><img src="{{ url_for('static', filename='greengame.png') }}" alt="Logotipo" class="logotipo"></a>
+            <p class="texto-imagem">Fácil</p>
+        </div>
+        <div>
+            <a href="medio.html"><img src="{{ url_for('static', filename='yellowgame.png') }}" alt="Logotipo" class="logotipo"></a>
+            <p class="texto-imagem">Médio</p>
+        </div>
+        <div>
+            <a href="dificil.html"><img src="{{ url_for('static', filename='redgame.png') }}" alt="Logotipo" class="logotipo"></a>
+            <p class="texto-imagem">Dificil</p>
+        </div>
+    </div>
+
+    <img id="fire1" src="{{ url_for('static', filename='fire-flame.gif') }}" alt="flame1">
+    <img id="fire2" src="{{ url_for('static', filename='fire-flame2.gif') }}" alt="flame2">
+    <img id="fire3" src="{{ url_for('static', filename='fire-flame3.gif') }}" alt="flame3">
+    <script>
+        // Código JavaScript (se necessário)
+    </script>
+</body>
+
+</html>

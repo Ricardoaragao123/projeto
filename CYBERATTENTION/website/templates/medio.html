@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+            text-align: center;
+            background-color: rgba(13, 35, 58);
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        #quiz-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        .options label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .options input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        #submit-btn {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #submit-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .link-images {
+            position: absolute;
+            top: 20px;
+        }
+
+        .link-jogos {
+            right: 150px;
+        }
+
+        .link-regras {
+            right: 50px;
+        }
+
+        .link-logotipo {
+            left: 20px;
+        }
+
+        #fire2 {
+            width: 30%; /* Define a largura para preencher a largura da tela */
+            max-width: 200px; /* Define uma largura máxima */
+            height: auto; /* Mantém a proporção original */
+            margin-top: -1300px; /* Adiciona espaço acima do GIF */
+            margin-left: 1050px; /* Define a margem à esquerda como automática para posicionar à direita */
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="link-images link-logotipo">
+        <a href="/">
+            <img src="{{ url_for('static', filename='logotipo.png') }}" alt="Descrição da imagem" style="width: 200px; height: auto;">
+        </a>
+    </div>
+    <div class="link-images link-jogos">
+        <a href="jogos.html">
+            <img src="{{ url_for('static', filename='jogos.png') }}" alt="Descrição da imagem" style="width: 80px; height: auto;">
+        </a>
+    </div>
+    <div class="link-images link-regras">
+        <a href="regras.html" target="_blank">
+            <img src="{{ url_for('static', filename='regras.png') }}" alt="Descrição da imagem" style="width: 80px; height: auto;">
+        </a>
+    </div>
+
+    <div id="quiz-container">
+        <h1>Jogo Quiz Medio</h1>
+        <form id="quiz-form">
+            <div class="question">
+                <p>Pergunta 1: Métodos de phishing e como identificá-los?</p>
+                <div class="options">
+                    <label><input type="radio" name="question1" value="Lisboa"> Sites confiáveis.</label>
+                    <label><input type="radio" name="question1" value="Porto"> Senhas seguras.</label>
+                    <label><input type="radio" name="question1" value="Faro"> Ataques de hackers.</label>
+                    <label><input type="radio" name="question1" value="4"> E-mails fraudulentos.</label>
+                </div>
+            </div>
+            <div class="question">
+                <p>Pergunta 2: Autenticação de Dois Fatores (2FA) serve para?</p>
+                <div class="options">
+                    <label><input type="radio" name="question2" value="Miguel de Cervantes"> Fortalece autenticação de contas.</label>
+                    <label><input type="radio" name="question2" value="William Shakespeare"> Não é essencial.</label>
+                    <label><input type="radio" name="question2" value="Fernando Pessoa"> Reduz conveniência do usuário.</label>
+                    <label><input type="radio" name="question2" value="Luis de Camões">  Não impede invasões.</label>
+                </div>
+            </div>
+            <div class="question">
+                <p>Pergunta 3: Redes Wi-Fi Públicas:como evitar risco?</p>
+                <div class="options">
+                    <label><input type="radio" name="question3" value="Júpiter"> Usar VPN protege.</label>
+                    <label><input type="radio" name="question3" value="Saturno"> Wi-Fi público é seguro.</label>
+                    <label><input type="radio" name="question3" value="3">  Desabilitar firewall é recomendado.</label>
+                    <label><input type="radio" name="question3" value="Marte"> Compartilhar senhas é seguro.</label>
+                </div>
+            </div>
+            <div class="question">
+                <p>Pergunta 4: Atualizações de Software .....</p>
+                <div class="options">
+                    <label><input type="radio" name="question4" value="Leonardo da Vinci"> Atualizações são maliciosas.</label>
+                    <label><input type="radio" name="question4" value="Pablo Picasso"> Vulnerabilidades são exageradas.</label>
+                    <label><input type="radio" name="question4" value="Vincent van Gogh"> Atualizações comprometem privacidade.</label>
+                    <label><input type="radio" name="question4" value="Michelangelo"> Corrigem vulnerabilidades, protegem.</label>
+                </div>
+            </div>
+            <button id="submit-btn" type="button">Enviar</button>
+        </form>
+        <div id="result-container" style="display: none;">
+            <h2>Resultado do Quiz</h2>
+            <p>Você acertou <span id="score"></span> de 4 perguntas.</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('submit-btn').addEventListener('click', function() {
+            var form = document.getElementById('quiz-form');
+            var formData = new FormData(form);
+            var score = 0;
+
+            formData.forEach(function(value, key) {
+                if (key !== 'question3') {
+                    if (value === '4' || value === 'Miguel de Cervantes' || value === 'Júpiter' || value === 'Michelangelo') {
+                        score++;
+                    }
+                } else {
+                    if (value === 'Júpiter') {
+                        score++;
+                    }
+                }
+            });
+
+            document.getElementById('result-container').style.display = 'block';
+            document.getElementById('score').innerText = score;
+        });
+    </script>
+
+    <img id="fire2" src="{{ url_for('static', filename='fire-flame2.gif') }}" alt="flame3">
+</body>
+
+</html>

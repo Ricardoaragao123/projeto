@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+
+<style>
+  /* Movendo os estilos CSS para uma seção <style> */
+  body {
+    background-color: rgba(13, 35, 58);
+  }
+
+  .link-images {
+    position: absolute;
+    top: 20px;
+  }
+
+  .link-jogos {
+    right: 150px;
+  }
+
+  .link-regras {
+    right: 50px;
+  }
+
+  #homempc {
+    position: absolute;
+    top: 230px;
+            width: 100%; /* Define a largura para preencher a largura da tela */
+            max-width: 100px; /* Define uma largura máxima */
+            height: auto; /* Mantém a proporção original */
+             /* Adiciona espaço acima do GIF */
+            margin-left: 510px; /* Define a margem à esquerda como automática para posicionar à direita */
+        }
+</style>
+
+<!-- Imagem no canto superior esquerdo como link para a página inicial -->
+<div class="link-images" style="top: 0; right: 1300px;">
+  <a href="perfil.html">
+    <img src="{{ url_for('static', filename='perfil.png') }}" alt="Descrição da imagem" style="width: 50px; height: auto;">
+  </a>
+</div>
+
+<!-- Imagens no canto superior direito -->
+<div class="link-images link-jogos">
+  <a href="jogos.html">
+    <img src="{{ url_for('static', filename='jogos.png') }}" alt="Descrição da imagem" style="width: 80px; height: auto;">
+  </a>
+</div>
+<div class="link-images link-regras">
+  <a href="regras.html" target="_blank">
+    <img src="{{ url_for('static', filename='regras.png') }}" alt="Descrição da imagem" style="width: 80px; height: auto;">
+  </a>
+</div>
+<img id="homempc" src="{{ url_for('static', filename='homempc.gif') }}" alt="homempc">
+
+<div style="text-align: center; margin-top: 230px;">  
+  <img src="{{ url_for('static', filename='logotipo.png') }}" alt="Descrição da imagem" style="width: 600px; height: auto;">
+</div>
+
+<!-- Link para as regras -->
+<div style="text-align: center; margin-top: 20px;">
+  <a href="jogos.html" style="color: white;">Clique aqui para ver os jogos</a>
+</div>
+
+{% endblock %}

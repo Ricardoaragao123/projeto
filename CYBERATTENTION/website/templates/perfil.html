@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <style>
+        body {
+            background-color: rgba(13, 35, 58);
+            color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0; /* Remova as margens para garantir que o iframe seja exibido corretamente */
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 50px;
+            font-family: Arial, sans-serif; /* Usando a mesma fonte */
+        }
+
+        .link-images {
+            position: absolute;
+            top: 20px;
+        }
+
+        .link-jogos {
+            right: 150px;
+        }
+
+        .link-regras {
+            right: 50px;
+        }
+
+        .link-logotipo {
+            left: 20px;
+        }
+
+        .perfil-image {
+            position: absolute; /* Adiciona posicionamento absoluto para a imagem */
+            top: 100px; /* Ajusta a posição da imagem para ficar acima do título */
+            left: 50%; /* Alinha a imagem horizontalmente */
+            transform: translateX(-50%); /* Centraliza a imagem horizontalmente */
+            width: 150px; /* Define a largura da imagem */
+            height: auto; /* Mantém a proporção original da imagem */
+            z-index: 1; /* Garante que a imagem fique acima do texto */
+            margin-left: 32px;
+        }
+
+        .coffee-image {
+            width: 50%; /* Define a largura para preencher a largura da tela */
+            max-width: 100px; /* Define uma largura máxima */
+            height: auto; /* Mantém a proporção original */
+            margin-top: -50px; /* Adiciona espaço acima do GIF */
+            margin-left: 00px; /* Posiciona à direita do perfil */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="link-images link-logotipo">
+        <a href="/">
+          <img src="{{ url_for('static', filename='logotipo.png') }}" alt="Descrição da imagem" style="width: 200px; height: auto;">
+        </a>
+    </div>
+    <div class="link-images link-jogos">
+        <a href="jogos.html">
+          <img src="{{ url_for('static', filename='jogos.png') }}" alt="Descrição da imagem" style="width: 80px; height: auto;">
+        </a>
+    </div>
+    <div class="link-images link-regras">
+        <a href="regras.html" target="_blank">
+          <img src="{{ url_for('static', filename='regras.png') }}" alt="Descrição da imagem" style="width: 80px; height: auto;">
+        </a>
+    </div>
+
+    <div class="link-images perfil-image">
+        <a  target="_blank">
+          <img src="{{ url_for('static', filename='perfil.png') }}" alt="Descrição da imagem" style="width: 80px; height: auto;">
+        </a>
+    </div>
+
+    <img src="{{ url_for('static', filename='coffe.gif') }}" alt="Coffe GIF" class="coffee-image">
+
+    <h1>Perfil</h1>
+    
+    <div style="text-align: center;">
+        <p><strong>Nome:</strong> {{ current_user.first_name }}</p>
+        <p><strong>Email:</strong> {{ current_user.email }}</p>
+        <p><strong>ID de identificação único:</strong> {{ current_user.id }}</p>
+    </div>
+</body>
+
+</html>

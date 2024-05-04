@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regras</title>
+    <style>
+        body {
+            background-color: rgba(13, 35, 58);
+            color: white; /* Define a cor do texto como branco para melhorar a legibilidade */
+            padding: 20px; /* Adiciona algum espaço ao redor do conteúdo */
+            display: flex; /* Ativa o layout flexível */
+            flex-direction: column; /* Alinha os itens verticalmente */
+            align-items: center; /* Centraliza os itens horizontalmente */
+            justify-content: center; /* Centraliza os itens verticalmente */
+            height: 100vh; /* Define a altura do corpo para ocupar toda a altura da janela de visualização */
+            margin: 0; /* Remova todas as margens */
+        }
+
+        h1 {
+            text-align: center; /* Centraliza o título */
+            margin-bottom: 20px; /* Adiciona algum espaço abaixo do título */
+            font-size: 50px;
+            font-family: 'Arial', sans-serif; /* Fonte mais bonita */
+        }
+
+        ul {
+            padding-left: 20px; /* Adiciona um recuo à lista */
+            font-size: 20px; /* Tamanho da fonte maior para as regras */
+            font-family: 'Arial', sans-serif; /* Fonte mais bonita */
+        }
+
+        li {
+            margin-bottom: 10px; /* Adiciona algum espaço entre os itens da lista */
+        }
+
+        .imagem-jogo {
+            width: 200px; /* Define a largura desejada da imagem */
+            height: auto; /* Mantém a proporção original da imagem */
+            margin-top: 20px; /* Adiciona algum espaço acima da imagem */
+            margin-left: 1050px; /* Corrija a posição da imagem */
+        }
+
+        .aviso {
+            width: 100px; /* Define a largura desejada da imagem */
+            height: auto; /* Mantém a proporção original da imagem */
+            margin-top: 20px; /* Ajusta a posição da imagem */
+            margin-right: 20px; /* Adiciona espaço entre a imagem e o texto */
+            float: left; /* Faz a imagem flutuar à esquerda */  
+        }
+
+        .lampada {
+            width: 120px; /* Define a largura desejada da imagem */
+            height: auto; /* Mantém a proporção original da imagem */
+            margin-top: -420px; /* Ajuste a posição da imagem */
+            margin-left: -650px; /* Ajuste a posição da imagem */
+        }
+
+        .link-images {
+            position: absolute;
+            top: 20px;
+        }
+
+        .link-jogos {
+            right: 150px;
+        }
+
+        .link-regras {
+            right: 50px;
+        }
+
+        .link-logotipo {
+            left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- logotipo para voltar ao a pagina main -->
+    <div class="link-images link-logotipo">
+        <img src="{{ url_for('static', filename='logotipo.png') }}" alt="Descrição da imagem" style="width: 200px; height: auto;">
+    </div>
+    <div class="link-images link-jogos">
+        <img src="{{ url_for('static', filename='jogos.png') }}" alt="Descrição da imagem" style="width: 80px; height: auto;">
+    </div>
+   
+
+    <h1>Regras: </h1>
+    <img src="{{ url_for('static', filename='aviso.png') }}" alt="Aviso" class="aviso">
+    <p style="font-size: 28px;">Aqui estão algumas regras básicas para o jogo:</p>
+    <ul>
+        <li><strong>Respeito às Regras do Jogo:</strong> Os jogadores devem concordar em seguir todas as regras estabelecidas pelo jogo, 
+            incluindo aquelas relacionadas ao uso adequado das ferramentas de cibersegurança disponíveis..</li>
+
+        <li><strong>Compartilhamento Responsável de Conhecimento:</strong> Os jogadores devem promover um ambiente de aprendizagem colaborativo,
+            compartilhando conhecimentos e técnicas de cibersegurança de forma responsável e ética.</li>
+
+        <li><strong>Proteção de Dados Pessoais:</strong> Os jogadores devem concordar em não compartilhar
+             informações pessoais.</li>
+
+        <li><strong>Feedback Construtivo:</strong> Os jogadores são encorajados a fornecer feedback construtivo sobre o jogo e suas regras, 
+            ajudando na melhoria contínua da experiência do usuário e na eficácia do ensino de cibersegurança.</li>
+
+        <li><strong>Proteção de Senhas e Credenciais:</strong> Os jogadores devem concordar em proteger suas próprias senhas e credenciais de acesso, 
+            não compartilhando-as com outros jogadores e mantendo-as em segurança contra possíveis ataques cibernéticos.</li>
+    </ul>
+    
+    <img src="{{ url_for('static', filename='imagemjogo.png') }}" alt="Imagem do Jogo" class="imagem-jogo">
+    
+    <a href="dificil2.html">
+        <img src="{{ url_for('static', filename='lampoff.png') }}" alt="Imagem da lâmpada" class="lampada">
+    </a>
+</body>
+
+</html>

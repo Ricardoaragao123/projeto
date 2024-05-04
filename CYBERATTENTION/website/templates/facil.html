@@ -1,0 +1,171 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+            text-align: center;
+            background-color: rgba(13, 35, 58);
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        #quiz-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        .options label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .options input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        #submit-btn {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #submit-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .link-images {
+            position: absolute;
+            top: 20px;
+        }
+        .link-jogos {
+            right: 150px;
+        }
+
+        .link-regras {
+            right: 50px;
+        }
+
+        .link-logotipo {
+            left: 20px;
+        }
+        #fire3 {
+            width: 7%; /* Define a largura para preencher a largura da tela */
+            max-width: 200px; /* Define uma largura máxima */
+            height: auto; /* Mantém a proporção original */
+            margin-top: -800px; /* Adiciona espaço acima do GIF */
+            margin-left: 1050px; /* Define a margem à esquerda como automática para posicionar à direita */
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="link-images link-logotipo">
+        <a href="/">
+          <img src="{{ url_for('static', filename='logotipo.png') }}" alt="Descrição da imagem" style="width: 200px; height: auto;">
+        </a>
+    </div>
+    <div class="link-images link-jogos">
+        <a href="jogos.html">
+          <img src="{{ url_for('static', filename='jogos.png') }}" alt="Descrição da imagem" style="width: 80px; height: auto;">
+        </a>
+    </div>
+    <div class="link-images link-regras">
+        <a href="regras.html" target="_blank">
+          <img src="{{ url_for('static', filename='regras.png') }}" alt="Descrição da imagem" style="width: 80px; height: auto;">
+        </a>
+    </div>
+
+    <div id="quiz-container">
+        <h1>Jogo Quiz Facil</h1>
+        <form id="quiz-form">
+            <div class="question">
+                <p>Pergunta 1: O que é phishing?</p>
+                <div class="options">
+                    <label><input type="radio" name="question1" value="Lisboa"> Roubo informações</label>
+                    <label><input type="radio" name="question1" value="Porto"> Aumentar velocidade</label>
+                    <label><input type="radio" name="question1" value="Faro"> Cultivar peixes</label>
+                </div>
+            </div>
+            <div class="question">
+                <p>Pergunta 2: O que é VPN?</p>
+                <div class="options">
+                    <label><input type="radio" name="question2" value="Miguel de Cervantes"> Rede segura</label>
+                    <label><input type="radio" name="question2" value="William Shakespeare"> Editar vídeos</label>
+                    <label><input type="radio" name="question2" value="Fernando Pessoa"> Reparar veículos</label>
+                </div>
+            </div>
+            <div class="question">
+                <p>Pergunta 3: O que é criptografia?</p>
+                <div class="options">
+                    <label><input type="radio" name="question3" value="Júpiter"> Senhas únicas</label>
+                    <label><input type="radio" name="question3" value="Saturno"> Compartilhar amigos</label>
+                    <label><input type="radio" name="question3" value="Terra"> Anotar lugares</label>
+                </div>
+            </div>
+            <div class="question">
+                <p>Pergunta 4: Qual é uma boa prática de segurança de senha?</p>
+                <div class="options">
+                    <label><input type="radio" name="question4" value="Leonardo da Vinci"> Transformar dados</label>
+                    <label><input type="radio" name="question4" value="Pablo Picasso"> Resolver problemas</label>
+                    <label><input type="radio" name="question4" value="Vincent van Gogh"> Criar músicas</label>
+                </div>
+            </div>
+            <button id="submit-btn" type="button">Enviar</button>
+        </form>
+        <div id="result-container" style="display: none;">
+            <h2>Resultado do Quiz</h2>
+            <p>Você acertou <span id="score"></span> de 4 perguntas.</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('submit-btn').addEventListener('click', function() {
+            var form = document.getElementById('quiz-form');
+            var formData = new FormData(form);
+            var score = 0;
+
+            formData.forEach(function(value, key) {
+                if (key !== 'question3') {
+                    if (value === 'Lisboa' || value === 'Miguel de Cervantes' || value === 'Júpiter' || value === 'Leonardo da Vinci') {
+                        score++;
+                    }
+                } else {
+                    if (value === 'Júpiter') {
+                        score++;
+                    }
+                }
+            });
+
+            document.getElementById('result-container').style.display = 'block';
+            document.getElementById('score').innerText = score;
+        });
+    </script>
+
+
+<img id="fire3" src="{{ url_for('static', filename='fire-flame3.gif') }}" alt="flame3">
+</body>
+
+</html>
+
